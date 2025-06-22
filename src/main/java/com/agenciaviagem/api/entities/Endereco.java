@@ -1,15 +1,30 @@
 package com.agenciaviagem.api.entities;
 
-public class Endereco {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "enderecos")
+public class Endereco {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name="cidade", length=250, nullable=false, unique=false)
     private String cidade;
+
+    @Column(name="estado", length=250, nullable=false, unique=false)
     private String estado;
+
+    @Column(name="pais", length=250, nullable=false, unique=false)
     private String pais;
 
     public Endereco(String cidade, String estado, String pais) {
         this.cidade = cidade;
         this.estado = estado;
         this.pais = pais;
+    }
+
+    public Endereco() {
     }
 
     public String getCidade() {
@@ -34,5 +49,9 @@ public class Endereco {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

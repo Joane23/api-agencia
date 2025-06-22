@@ -3,24 +3,24 @@ package com.agenciaviagem.api.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "clientes")
-public class Cliente {
+@Table(name = "usuarios")
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nome", nullable = false)
-    private String nome;
+    @Column(name = "email", nullable = false)
+    private String email;
 
-    public Cliente(String nome) {
-        this.nome = nome;
+    public Usuario(String email, String senha) {
+        this.email = email;
     }
 
-    public Cliente() {
+    public Usuario() {
     }
 
     public String getNome() {
-        return nome;
+        return email;
     }
 
     public Long getId() {
